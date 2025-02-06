@@ -269,15 +269,19 @@ function Main() {
     }
   };
   const ArrowsClicked = () => {
-    setarrowclicked(!arrowclicked);
-    if (arrowclicked) {
-      setquote(element2);
-      setauthor("Eleanor Roosevelt");
-    } else {
-      setquote(element);
-      setauthor("Ada Lovelace");
-    }
+    setarrowclicked((prevState) => {
+      const newState = !prevState;
+      if (newState) {
+        setquote(element2);
+        setauthor("Eleanor Roosevelt");
+      } else {
+        setquote(element);
+        setauthor("Ada Lovelace");
+      }
+      return newState;
+    });
   };
+
   function GetDate() {
     const date = new Date();
     const hours = date.getHours();
