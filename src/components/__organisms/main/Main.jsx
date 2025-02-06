@@ -4,18 +4,9 @@ import styled from "styled-components";
 import main_img from "../../../assets/images/jeremy-bishop-dvACrXUExLs-unsplash.svg";
 import arrows_img from "../../../assets/images/CombinedShape.svg";
 import sun_img from "../../../assets/images/CombinedShape1.svg";
+import moon_img from "../../../assets/images/moon.svg";
 import Down_arrow_img from "../../../assets/images/Group3.svg";
-const Main_Container = styled.div`
-  height: 100vh;
-  width: 100%;
-  background-image: url(${main_img});
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-between;
-`;
+import dark_img from "../../../assets/images/dark_img.svg";
 
 const Quotes_div_minor = styled.div`
   display: flex;
@@ -29,12 +20,20 @@ const Quotes_div_p = styled.p`
   font-size: 18px;
   font-weight: 400;
   line-height: 28px;
+  @media (max-width: 635px) {
+    font-size: 12px;
+    line-height: 22px;
+  }
 `;
 const Author_p = styled.p`
   color: #fff;
   font-size: 18px;
   font-weight: 700;
   line-height: 28px;
+  @media (max-width: 635px) {
+    font-size: 12px;
+    line-height: 22px;
+  }
 `;
 const Arrows_btn = styled.button`
   background-color: transparent;
@@ -52,6 +51,10 @@ const Main_div = styled.div`
     align-items: baseline;
     gap: 80px;
   }
+  @media (max-width: 635px) {
+    margin-top: 79px;
+    margin-bottom: 40px;
+  }
 `;
 
 const Greeting_div = styled.div`
@@ -66,8 +69,13 @@ const Greeting_p = styled.p`
   line-height: 28px;
   letter-spacing: 4px;
   @media (max-width: 800px) {
-    font-size: 18;
+    font-size: 18px;
     letter-spacing: 3.6px;
+  }
+  @media (max-width: 635px) {
+    font-size: 13px;
+    line-height: 25px;
+    letter-spacing: 3px;
   }
 `;
 const Clock_p = styled.p`
@@ -83,6 +91,12 @@ const Clock_p = styled.p`
     letter-spacing: -4.375px;
     margin-top: 0px;
   }
+  @media (max-width: 635px) {
+    font-size: 100px;
+    line-height: 100px;
+    letter-spacing: -2.5px;
+    margin-top: 16px;
+  }
 `;
 const Span = styled.span`
   color: #fff;
@@ -94,6 +108,9 @@ const Span = styled.span`
 
   @media (max-width: 800px) {
     font-size: 32px;
+  }
+  @media (max-width: 635px) {
+    font-size: 15px;
   }
 `;
 const Location_p = styled.p`
@@ -107,6 +124,11 @@ const Location_p = styled.p`
     font-size: 18px;
     letter-spacing: 3.6px;
     margin-top: 0px;
+  }
+  @media (max-width: 635px) {
+    font-size: 15px;
+    letter-spacing: 3px;
+    margin-top: 16px;
   }
 `;
 const More_btn = styled.button`
@@ -129,79 +151,108 @@ const Btn_p = styled.p`
   line-height: 28px;
   letter-spacing: 5px;
 `;
-const Moving_div = styled.div`
-  width: 100%;
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(20.387113571166992px);
-  padding-left: 10px;
-  padding-right: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  @media (max-width: 800px) {
-    padding-left: 64px;
-  }
-`;
+
 const Moving_div_main = styled.div`
   max-width: 1110px;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 74px;
   @media (max-width: 800px) {
     justify-content: start;
     gap: 84px;
+  }
+  @media (max-width: 635px) {
+    flex-direction: column;
+    gap: 20px;
+    padding-right: 26px;
+    padding-left: 26px;
+    justify-content: space-between;
+    margin-bottom: 0px;
   }
 `;
 const Movin_div_left = styled.div`
   flex-direction: column;
   margin-top: 74px;
-`;
-const Movin_div_p = styled.p`
-  color: #303030;
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 28px;
-  letter-spacing: 3px;
-  @media (max-width: 800px) {
-    font-size: 13px;
-    letter-spacing: 2.6px;
-  }
-`;
-const Movin_div_p2 = styled.p`
-  color: #303030;
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 28px;
-  letter-spacing: 3px;
-  margin-top: 42px;
-  @media (max-width: 800px) {
-    font-size: 13px;
-    letter-spacing: 2.6px;
-  }
-`;
-const Moving_div_h = styled.h1`
-  color: #303030;
-  font-size: 56px;
-  font-weight: 700;
-  margin-top: 9px;
-  @media (max-width: 800px) {
-    font-size: 40px;
+  @media (max-width: 635px) {
     margin-top: 0px;
+    gap: 20px;
   }
 `;
+
 function Main() {
+  const hours = new Date().getHours();
+  const bgimg = hours >= 18 || hours < 6 ? dark_img : main_img;
+  const Main_Container = styled.div`
+    height: 100vh;
+    width: 100%;
+    background-image: url(${bgimg});
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+  `;
+
+  const dark_color = hours >= 18 || hours < 6 ? "#FFF" : "#303030";
+  const Movin_div_p = styled.p`
+    color: ${dark_color};
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 3px;
+    @media (max-width: 800px) {
+      font-size: 13px;
+      letter-spacing: 2.6px;
+    }
+    @media (max-width: 635px) {
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+  `;
+  const Movin_div_p2 = styled.p`
+    color: ${dark_color};
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 3px;
+    margin-top: 42px;
+    @media (max-width: 800px) {
+      font-size: 13px;
+      letter-spacing: 2.6px;
+    }
+    @media (max-width: 635px) {
+      font-size: 10px;
+      letter-spacing: 2px;
+      margin-top: 0px;
+    }
+  `;
+  const Moving_div_h = styled.h1`
+    color: ${dark_color};
+    font-size: 56px;
+    font-weight: 700;
+    margin-top: 9px;
+    @media (max-width: 800px) {
+      font-size: 40px;
+      margin-top: 0px;
+    }
+    @media (max-width: 635px) {
+      font-size: 20px;
+    }
+  `;
   const element = (
     <p>
-      “The science of operations, as derived from mathematics more <br />{" "}
-      especially, is a science of itself, and has its own abstract truth <br />{" "}
-      and value.”
+      “The science of operations, as derived from mathematics more{" "}
+      <br className="desktop" /> especially, is a science of itself, and has its
+      own abstract truth <br className="desktop" /> and value.”
     </p>
   );
   const element2 = (
     <p>
-      “Since you get more joy out of giving joy to others, you should <br /> put
-      a good deal of thought into the happiness that you are <br /> able to
-      give.”
+      “Since you get more joy out of giving joy to others, you should{" "}
+      <br className="desktop" /> put a good deal of thought into the happiness
+      that you are <br className="desktop" /> able to give.”
     </p>
   );
   const [clicked, setclicked] = useState(false);
@@ -269,6 +320,48 @@ function Main() {
     return () => clearInterval(interval);
   }, []);
 
+  const dark_line = hours >= 18 || hours < 6 ? "line_div_dark" : "line_div";
+  const moving_div_dark =
+    hours >= 18 || hours < 6 ? "moving_div_dark" : "moving_div";
+  const greeting_text_toggle =
+    hours >= 18 || hours < 6
+      ? "GOOD EVENING, IT’S CURRENTLY"
+      : "GOOD MORNING, IT’S CURRENTLY";
+  const Greetig_img_toggle =
+    hours >= 18 || hours < 6 ? `${moon_img}` : `${sun_img}`;
+
+  const [location, setLocation] = useState(null);
+  const [weather, setWeather] = useState(null);
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+      console.log("Geolocation not supported");
+    }
+  }, []);
+
+  function success(position) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    setLocation({ latitude, longitude });
+    console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+
+    fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=2481d25ee85d416293c90218b39f69d6&units=metric`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setWeather(data);
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
+  }
+
+  function error() {
+    console.log("Unable to retrieve your location");
+  }
+
   return (
     <>
       <Main_Container>
@@ -285,46 +378,54 @@ function Main() {
           <Main_div>
             <div className={clicked ? "info_div_clicked" : "info_div"}>
               <Greeting_div>
-                <img src={sun_img} alt="" />
-                <Greeting_p>GOOD MORNING, IT’S CURRENTLY</Greeting_p>
+                <img src={Greetig_img_toggle} alt="" />
+                <Greeting_p>{greeting_text_toggle}</Greeting_p>
               </Greeting_div>
               <Clock_p>
                 {date.time}
                 <Span>BST</Span>
               </Clock_p>
-              <Location_p>IN LONDON, UK</Location_p>
+              <Location_p>{weather ? `${weather.name}` : null}</Location_p>
             </div>
             <More_btn onClick={click}>
               <Btn_p>{text}</Btn_p>
               <img
-                className={clicked ? "rotate" : ""}
+                className={clicked ? "rotate" : "till_rotate"}
                 src={Down_arrow_img}
                 alt=""
               />
             </More_btn>
           </Main_div>
         </div>
-        <Moving_div className={clicked ? "moving_div" : "short_div"}>
+        <div className={clicked ? `${moving_div_dark}` : "short_div"}>
           <Moving_div_main>
             <Movin_div_left
               className={clicked ? "movin_div_left" : "dissepare"}
             >
-              <Movin_div_p>CURRENT TIMEZONE</Movin_div_p>
-              <Moving_div_h>Europe/London</Moving_div_h>
-              <Movin_div_p2>Day of the year</Movin_div_p2>
-              <Moving_div_h>{date.day}</Moving_div_h>
+              <div className="Movin_div_left_minor">
+                <Movin_div_p>CURRENT TIMEZONE</Movin_div_p>
+                <Moving_div_h>Europe/London</Moving_div_h>
+              </div>
+              <div className="Movin_div_left_minor">
+                <Movin_div_p2>Day of the year</Movin_div_p2>
+                <Moving_div_h>{date.day}</Moving_div_h>
+              </div>
             </Movin_div_left>
-            <div className={clicked ? "line_div" : "dissepare"}></div>
+            <div className={clicked ? `${dark_line}` : "dissepare"}></div>
             <Movin_div_left
               className={clicked ? "movin_div_left" : "dissepare"}
             >
-              <Movin_div_p>Day of the week</Movin_div_p>
-              <Moving_div_h>{date.dayofweek}</Moving_div_h>
-              <Movin_div_p2>Week number</Movin_div_p2>
-              <Moving_div_h>{date.week}</Moving_div_h>
+              <div className="Movin_div_left_minor">
+                <Movin_div_p>Day of the week</Movin_div_p>
+                <Moving_div_h>{date.dayofweek}</Moving_div_h>
+              </div>
+              <div className="Movin_div_left_minor">
+                <Movin_div_p2>Week number</Movin_div_p2>
+                <Moving_div_h>{date.week}</Moving_div_h>
+              </div>
             </Movin_div_left>
           </Moving_div_main>
-        </Moving_div>
+        </div>
       </Main_Container>
     </>
   );
