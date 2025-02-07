@@ -29,7 +29,6 @@
       overflow: hidden;
       animation: short_div 0.7s;
       background: rgba(255, 255, 255, 0.75);
-      
     }
     /* @keyframes short_div {
       from{height: 400px;}
@@ -45,7 +44,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      animation: moving_div 0.7s;
+      overflow: hidden;
     }
     @keyframes moving_div {
       from{height: 0px;}
@@ -61,7 +60,12 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      animation: moving_div 0.7s;
+      animation: moving_div_dark 0.7s;
+      overflow: hidden;
+    }
+    @keyframes moving_div_dark {
+      from{height: 0px;}
+      to{height: 400px;}
     }
     .Quotes_div {
       display: flex;
@@ -110,8 +114,8 @@
     flex-direction: column;
     max-width: 1110px;
     width: 100%;
-    justify-content: space-between;
-    height: 100vh;
+   height: 100vh;
+   justify-content: space-between;
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 98px;
@@ -183,11 +187,11 @@ transition: all 0.3s ease-in-out;
           justify-content: space-between;
   }
   .moving_div{
-      min-height: 375px;
+      min-height: 300px;
       padding-left: 0px;
   }
   .moving_div_dark{
-      min-height: 375px;
+      min-height: 300px;
       padding-left: 0px;
   }
      }

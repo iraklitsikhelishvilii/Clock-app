@@ -20,9 +20,9 @@ function Main() {
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
-    align-items: center;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
   `;
 
   const element = (
@@ -119,7 +119,11 @@ function Main() {
     hours >= 18 || hours < 6 ? `${moon_img}` : `${sun_img}`;
 
   const [location, setLocation] = useState(null);
-  const [weather, setWeather] = useState(null);
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+  const [continent, setContinent] = useState("");
+
+  const API_KEY = "dc1f03954d004e2f8cbbc65a77f47fd4";
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -133,23 +137,30 @@ function Main() {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
     setLocation({ latitude, longitude });
+
     console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
 
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=2481d25ee85d416293c90218b39f69d6&units=metric`
+      `https://api.opencagedata.com/geocode/v1/json?q=${latitude},${longitude}&key=${API_KEY}`
     )
       .then((response) => response.json())
       .then((data) => {
-        setWeather(data);
-        console.log(data);
+        if (data.results.length > 0) {
+          const city =
+            data.results[0].components.city || data.results[0].components.town;
+          const country = data.results[0].components.country;
+          const continent = data.results[0].components.continent;
+          setCity(city);
+          setCountry(country);
+          setContinent(continent);
+        }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log("Error fetching location data:", error));
   }
 
   function error() {
     console.log("Unable to retrieve your location");
   }
-
   return (
     <>
       <Main_Container>
@@ -162,10 +173,11 @@ function Main() {
           Greetig_img_toggle={Greetig_img_toggle}
           greeting_text_toggle={greeting_text_toggle}
           date={date}
-          weather={weather}
           click={click}
           text={text}
           Down_arrow_img={Down_arrow_img}
+          city={city}
+          country={country}
         />
         <Moving_div
           clicked={clicked}
@@ -173,7 +185,8 @@ function Main() {
           date={date}
           dark_line={dark_line}
           hours={hours}
-          weather={weather}
+          continent={continent}
+          city={city}
         />
       </Main_Container>
     </>

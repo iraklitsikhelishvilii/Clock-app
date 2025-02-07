@@ -29,7 +29,8 @@ function Container({
   Greetig_img_toggle,
   greeting_text_toggle,
   date,
-  weather,
+  city,
+  country,
   click,
   text,
   Down_arrow_img,
@@ -49,7 +50,8 @@ function Container({
           Greetig_img_toggle={Greetig_img_toggle}
           greeting_text_toggle={greeting_text_toggle}
           date={date}
-          weather={weather}
+          city={city}
+          country={country}
         />
         <More_btn
           click={click}

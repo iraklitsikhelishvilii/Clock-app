@@ -27,7 +27,8 @@ function Moving_div({
   date,
   dark_line,
   hours,
-  weather,
+  continent,
+  city,
 }) {
   return (
     <div className={clicked ? `${moving_div_dark}` : "short_div"}>
@@ -36,10 +37,11 @@ function Moving_div({
           hours={hours}
           clicked={clicked}
           date={date}
-          weather={weather}
           Movin_div_p_txt="CURRENT TIMEZONE"
           Movin_div_p2_txt="Day of the year"
-          content={weather ? `${weather.name}` : null}
+          content={
+            continent && city ? `${continent}/${city}` : "Fetching location..."
+          }
           content2={date.day}
         />
         <div className={clicked ? `${dark_line}` : "dissepare"}></div>
@@ -48,7 +50,6 @@ function Moving_div({
           hours={hours}
           clicked={clicked}
           date={date}
-          weather={weather}
           Movin_div_p_txt="Day of the week"
           Movin_div_p2_txt="Week number"
           content={date.dayofweek}

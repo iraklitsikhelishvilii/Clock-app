@@ -78,7 +78,8 @@ function Greeting_div_func({
   Greetig_img_toggle,
   greeting_text_toggle,
   date,
-  weather,
+  city,
+  country,
 }) {
   return (
     <div className={clicked ? "info_div_clicked" : "info_div"}>
@@ -90,7 +91,9 @@ function Greeting_div_func({
         {date.time}
         <Span>BST</Span>
       </Clock_p>
-      <Location_p>{weather ? `${weather.name}` : null}</Location_p>
+      <Location_p>
+        <p>in {city && country ? `${city}, ${country}` : "Fetching city..."}</p>
+      </Location_p>
     </div>
   );
 }
