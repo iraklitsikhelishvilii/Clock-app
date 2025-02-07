@@ -5,180 +5,10 @@ import main_img from "../../../assets/images/jeremy-bishop-dvACrXUExLs-unsplash.
 import arrows_img from "../../../assets/images/CombinedShape.svg";
 import sun_img from "../../../assets/images/CombinedShape1.svg";
 import moon_img from "../../../assets/images/moon.svg";
-import Down_arrow_img from "../../../assets/images/Group3.svg";
+import Down_arrow_img from "../../../assets/images/down_arrow_img.svg";
 import dark_img from "../../../assets/images/dark_img.svg";
-
-const Quotes_div_minor = styled.div`
-  display: flex;
-  flex-direction: column;
-  display: flex;
-  align-items: start;
-  gap: 13px;
-`;
-const Quotes_div_p = styled.p`
-  color: #fff;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 28px;
-  @media (max-width: 635px) {
-    font-size: 12px;
-    line-height: 22px;
-  }
-`;
-const Author_p = styled.p`
-  color: #fff;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 28px;
-  @media (max-width: 635px) {
-    font-size: 12px;
-    line-height: 22px;
-  }
-`;
-const Arrows_btn = styled.button`
-  background-color: transparent;
-  border: none;
-  margin-top: 11px;
-  cursor: pointer;
-`;
-const Main_div = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  align-items: end;
-  @media (max-width: 800px) {
-    flex-direction: column;
-    align-items: baseline;
-    gap: 80px;
-  }
-  @media (max-width: 635px) {
-    margin-top: 79px;
-    margin-bottom: 40px;
-  }
-`;
-
-const Greeting_div = styled.div`
-  display: flex;
-
-  gap: 16px;
-`;
-const Greeting_p = styled.p`
-  color: #fff;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 28px;
-  letter-spacing: 4px;
-  @media (max-width: 800px) {
-    font-size: 18px;
-    letter-spacing: 3.6px;
-  }
-  @media (max-width: 635px) {
-    font-size: 13px;
-    line-height: 25px;
-    letter-spacing: 3px;
-  }
-`;
-const Clock_p = styled.p`
-  color: #fff;
-  font-size: 200px;
-  font-weight: 700;
-  line-height: 200px;
-  letter-spacing: -5px;
-  margin-top: 16px;
-  @media (max-width: 800px) {
-    font-size: 175px;
-    line-height: 175px;
-    letter-spacing: -4.375px;
-    margin-top: 0px;
-  }
-  @media (max-width: 635px) {
-    font-size: 100px;
-    line-height: 100px;
-    letter-spacing: -2.5px;
-    margin-top: 16px;
-  }
-`;
-const Span = styled.span`
-  color: #fff;
-  font-size: 40px;
-  font-weight: 300;
-  line-height: 28px;
-  letter-spacing: 2px;
-  margin-left: 11px;
-
-  @media (max-width: 800px) {
-    font-size: 32px;
-  }
-  @media (max-width: 635px) {
-    font-size: 15px;
-  }
-`;
-const Location_p = styled.p`
-  color: #fff;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 28px;
-  letter-spacing: 4.8px;
-  margin-top: 16px;
-  @media (max-width: 800px) {
-    font-size: 18px;
-    letter-spacing: 3.6px;
-    margin-top: 0px;
-  }
-  @media (max-width: 635px) {
-    font-size: 15px;
-    letter-spacing: 3px;
-    margin-top: 16px;
-  }
-`;
-const More_btn = styled.button`
-  height: 56px;
-  border-radius: 28px;
-  background: #fff;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 13px;
-  padding-left: 21px;
-  padding-right: 9px;
-  cursor: pointer;
-`;
-const Btn_p = styled.p`
-  color: #000;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 28px;
-  letter-spacing: 5px;
-`;
-
-const Moving_div_main = styled.div`
-  max-width: 1110px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 74px;
-  @media (max-width: 800px) {
-    justify-content: start;
-    gap: 84px;
-  }
-  @media (max-width: 635px) {
-    flex-direction: column;
-    gap: 20px;
-    padding-right: 26px;
-    padding-left: 26px;
-    justify-content: space-between;
-    margin-bottom: 0px;
-  }
-`;
-const Movin_div_left = styled.div`
-  flex-direction: column;
-  margin-top: 74px;
-  @media (max-width: 635px) {
-    margin-top: 0px;
-    gap: 20px;
-  }
-`;
+import Container from "../../__molecules/container/Container";
+import Moving_div from "../../__molecules/moving_div/Moving_div";
 
 function Main() {
   const hours = new Date().getHours();
@@ -195,52 +25,6 @@ function Main() {
     justify-content: space-between;
   `;
 
-  const dark_color = hours >= 18 || hours < 6 ? "#FFF" : "#303030";
-  const Movin_div_p = styled.p`
-    color: ${dark_color};
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 28px;
-    letter-spacing: 3px;
-    @media (max-width: 800px) {
-      font-size: 13px;
-      letter-spacing: 2.6px;
-    }
-    @media (max-width: 635px) {
-      font-size: 10px;
-      letter-spacing: 2px;
-    }
-  `;
-  const Movin_div_p2 = styled.p`
-    color: ${dark_color};
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 28px;
-    letter-spacing: 3px;
-    margin-top: 42px;
-    @media (max-width: 800px) {
-      font-size: 13px;
-      letter-spacing: 2.6px;
-    }
-    @media (max-width: 635px) {
-      font-size: 10px;
-      letter-spacing: 2px;
-      margin-top: 0px;
-    }
-  `;
-  const Moving_div_h = styled.h1`
-    color: ${dark_color};
-    font-size: 56px;
-    font-weight: 700;
-    margin-top: 9px;
-    @media (max-width: 800px) {
-      font-size: 40px;
-      margin-top: 0px;
-    }
-    @media (max-width: 635px) {
-      font-size: 20px;
-    }
-  `;
   const element = (
     <p>
       “The science of operations, as derived from mathematics more{" "}
@@ -369,67 +153,28 @@ function Main() {
   return (
     <>
       <Main_Container>
-        <div className={clicked ? "container_clicked" : "container"}>
-          <div className={clicked ? "dissepare" : "Quotes_div"}>
-            <Quotes_div_minor>
-              <Quotes_div_p>{quote}</Quotes_div_p>
-              <Author_p>{author}</Author_p>
-            </Quotes_div_minor>
-            <Arrows_btn onClick={ArrowsClicked}>
-              <img src={arrows_img} alt="" />
-            </Arrows_btn>
-          </div>
-          <Main_div>
-            <div className={clicked ? "info_div_clicked" : "info_div"}>
-              <Greeting_div>
-                <img src={Greetig_img_toggle} alt="" />
-                <Greeting_p>{greeting_text_toggle}</Greeting_p>
-              </Greeting_div>
-              <Clock_p>
-                {date.time}
-                <Span>BST</Span>
-              </Clock_p>
-              <Location_p>{weather ? `${weather.name}` : null}</Location_p>
-            </div>
-            <More_btn onClick={click}>
-              <Btn_p>{text}</Btn_p>
-              <img
-                className={clicked ? "rotate" : "till_rotate"}
-                src={Down_arrow_img}
-                alt=""
-              />
-            </More_btn>
-          </Main_div>
-        </div>
-        <div className={clicked ? `${moving_div_dark}` : "short_div"}>
-          <Moving_div_main>
-            <Movin_div_left
-              className={clicked ? "movin_div_left" : "dissepare"}
-            >
-              <div className="Movin_div_left_minor">
-                <Movin_div_p>CURRENT TIMEZONE</Movin_div_p>
-                <Moving_div_h>Europe/London</Moving_div_h>
-              </div>
-              <div className="Movin_div_left_minor">
-                <Movin_div_p2>Day of the year</Movin_div_p2>
-                <Moving_div_h>{date.day}</Moving_div_h>
-              </div>
-            </Movin_div_left>
-            <div className={clicked ? `${dark_line}` : "dissepare"}></div>
-            <Movin_div_left
-              className={clicked ? "movin_div_left" : "dissepare"}
-            >
-              <div className="Movin_div_left_minor">
-                <Movin_div_p>Day of the week</Movin_div_p>
-                <Moving_div_h>{date.dayofweek}</Moving_div_h>
-              </div>
-              <div className="Movin_div_left_minor">
-                <Movin_div_p2>Week number</Movin_div_p2>
-                <Moving_div_h>{date.week}</Moving_div_h>
-              </div>
-            </Movin_div_left>
-          </Moving_div_main>
-        </div>
+        <Container
+          clicked={clicked}
+          quote={quote}
+          author={author}
+          ArrowsClicked={ArrowsClicked}
+          arrows_img={arrows_img}
+          Greetig_img_toggle={Greetig_img_toggle}
+          greeting_text_toggle={greeting_text_toggle}
+          date={date}
+          weather={weather}
+          click={click}
+          text={text}
+          Down_arrow_img={Down_arrow_img}
+        />
+        <Moving_div
+          clicked={clicked}
+          moving_div_dark={moving_div_dark}
+          date={date}
+          dark_line={dark_line}
+          hours={hours}
+          weather={weather}
+        />
       </Main_Container>
     </>
   );
