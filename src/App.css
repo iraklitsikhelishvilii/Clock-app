@@ -30,12 +30,9 @@
       animation: short_div 0.7s;
       background: rgba(255, 255, 255, 0.75);
     }
-    /* @keyframes short_div {
-      from{height: 400px;}
-      to{height: 0px;}
-    } */
+  
     .moving_div {
-      min-height: 350px; 
+      height: 350px; 
       width: 100%;
       background: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(20.387113571166992px);
@@ -44,14 +41,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
+      animation: moving_div 1s;
     }
-    @keyframes moving_div {
-      from{height: 0px;}
-      to{height: 400px;}
-    }
+   @keyframes moving_div {
+    0%{height: 0px;}
+    100%{height: 350px;}
+   }
     .moving_div_dark {
-      min-height: 350px; 
+      height: 350px; 
       width: 100%;
       background: rgba(0, 0, 0, 0.75);
       backdrop-filter: blur(20.387113571166992px);
@@ -60,13 +57,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      animation: moving_div_dark 0.7s;
-      overflow: hidden;
+      animation: moving_div 1s;
     }
-    @keyframes moving_div_dark {
-      from{height: 0px;}
-      to{height: 400px;}
-    }
+   
     .Quotes_div {
       display: flex;
       align-items: start;
@@ -169,11 +162,11 @@ transition: all 0.3s ease-in-out;
       padding-left: 64px;
     }
     .moving_div{ padding-left: 64px;
-    min-height: 300px;
+    height: 300px;
     }
     .moving_div_dark{
       padding-left: 64px;
-      min-height: 300px;
+      height: 300px;
     }
      }
      @media(max-width:635px){
@@ -190,11 +183,11 @@ transition: all 0.3s ease-in-out;
           justify-content: space-between;
   }
   .moving_div{
-      min-height: 240px;
+    height: 240px;
       padding-left: 0px;
   }
   .moving_div_dark{
-      min-height: 240px;
+      height: 240px;
       padding-left: 0px;
   }
      }
