@@ -7,6 +7,7 @@ import Quotes_box from "../../__atoms/quotes_box/Quotes_box";
 const Main_div = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   align-items: end;
   @media (max-width: 800px) {
